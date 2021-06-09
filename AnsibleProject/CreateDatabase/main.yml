@@ -1,0 +1,9 @@
+- hosts: localhost
+  tasks:
+#    - include_role:
+#        name: create_db
+#
+    - include_role:
+        name: restore_db
+
+

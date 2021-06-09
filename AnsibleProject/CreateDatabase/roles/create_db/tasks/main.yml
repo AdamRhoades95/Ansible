@@ -1,0 +1,35 @@
+#- name: install python
+#  yum: name=MySQL-python state=installed
+- name: Start SQL Service
+  service: name=mysqld state=restarted
+- name: create AnsTest database
+  mysql_db: 
+    name: AnsibleTest1
+    state: present
+    login_user: root
+    login_password: shr4l1f3
+    
+- name: create user
+  mysql_user:
+    login_user: root
+    login_password: shr4l1f3
+    name: ansUser1
+    password: shr4l1f3
+    priv: '*.*:ALL'
+    state: present
+
+- name: dump AnsibleTest1 to file
+  mysql_db:
+    login_user: root
+    login_password: shr4l1f3
+    name: AnsibleTest1
+    state: dump
+    target: /root/AnsibleProject/CreateDatabase/roles/create_db/dumpFile/dump.sql
+
+
+
+
+
+#- name: restart MYSQL Service
+#  service: name=mysql state=restarted
+

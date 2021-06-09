@@ -1,0 +1,10 @@
+- hosts: all
+  tasks:
+    block:
+      - include_role:
+          name: linux
+    rescue:
+      - include_role:
+          name: windows
+
+      

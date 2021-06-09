@@ -1,0 +1,23 @@
+#- name: copy dump file
+#  copy:
+#    src: dump.sql.bz2
+#    dest: /root/AnsibleProject/CreateDatabase/roles/create_db/dumpFile
+- name: restore database from dump file
+  mysql_db:
+    name: transTest1
+    login_user: root
+    login_password: shr4l1f3
+    state: import
+    target: /root/AnsibleProject/CreateDatabase/roles/create_db/dumpFile/dump.sql
+
+
+
+
+
+
+
+
+
+
+
+
